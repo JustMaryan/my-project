@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.7/codemirror.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.7/theme/dracula.min.css">
+	<!-- Підключення jQuery -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<!-- Підключення jQuery UI -->
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+	<!-- Підключення jQuery UI Touch Punch -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+	<!-- CodeMirror -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.7/codemirror.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.7/mode/javascript/javascript.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.7/addon/edit/closebrackets.min.js"></script>
+    <title>Libery</title>
+</head>
+<body>
+    <div class="wrapper">
+		<div class="header">
+			<div class="header__container">
+				<h1 class="header__logo">MarianKvasnitsha</h1>
+				<a href="../index.html" class="header__btn">Home Page</a>
+			</div>
+		</div>
+		<main class="crib">
+			<div class="crib__container">
+				<!-- ** MENU ** -->
+				<div class="crib__menu menu-crib _icon-My-cheat-sheet">
+					<div data-crib-menu class="menu-crib__wrapper">
+					</div>
+					<button data-crib-btn="add-crib" class="menu-crib__btn _icon-plus">Нова Глава</button>
+					<span class="menu-crib__show _icon-angle-right"></span>
+				</div>				
+				<!-- ** BODY ** -->
+				<div data-crib-body class="crib__body">
+				</div>
+			</div>
+		</main>
+	</div>
+</body>
+</html>

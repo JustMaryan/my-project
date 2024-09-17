@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+</head>
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<p class="header__logo">Maryan Kvasnitsha</p>
+				<button type="button" class="header__btn">
+					<a href="./index.html" class="header__link">Home page</a>
+					<div class="header__btn-bg"></div>
+				</button>
+			</div>
+			
+		</header>
+		<main class="home">
+			<div class="home__container">
+				<div class="home__content">
+					<h2 class="home__title">HI, my name <span>Maryan</span></h2>
+					<p class="home__text">I'm <span>24 years</span> old and I'm doing different things, I'm trying myself in programming and design, I'll see what will come of it in the future, for now it's just a hobby.</p>
+					<ul class="home__items">
+						Links to my sources:
+						<li class="home__item"><a href="https://github.com/JustMaryan" target="_blank" class="home__link">GitHub</a></li>
+						<li class="home__item"><a href="https://www.codewars.com/users/JustMaryan" target="_blank" class="home__link">CodeWars</a></li>
+					</ul>
+				</div>
+				<div class="splide">
+					<div class="splide__track">
+						  <ul class="splide__list">
+							  <li class="splide__slide splide__slide-ibg"><img class="splide__img" src="img/index/1.jpg" alt="image"></li>
+							  <li class="splide__slide splide__slide-ibg"><img class="splide__img" src="img/index/2.jpg" alt="image"></li>
+							  <li class="splide__slide splide__slide-ibg"><img class="splide__img" src="img/index/3.jpg" alt="image"></li>
+							  <li class="splide__slide splide__slide-ibg"><img class="splide__img" src="img/index/4.jpg" alt="image"></li>
+							  <li class="splide__slide splide__slide-ibg"><img class="splide__img" src="img/index/5.jpg" alt="image"></li>
+						  </ul>
+					</div>
+				</div>
+			</div>	
+		</main>
+		<section class="catalog">
+			<div class="catalog__menu">
+				<button data-tab-btn="1" class="catalog__btn">Projects</button>
+				<button data-tab-btn="2" class="catalog__btn">Libery</button>
+				<button data-tab-btn="3" class="catalog__btn">Other</button>
+				<button data-tab-remove class="catalog__btn catalog__btn_remove"></button>
+			</div>
+			<div class="catalog__items">
+				<div data-tab="1" class="catalog__item">
+					<!-- Links -->
+					<div class="card">
+						<a href="#" class="card__img-ibg">
+							<img src="img/Catalog/links.webp" alt="img" class="card__img">
+						</a>
+						<div class="card__content">
+							<h3 class="card__title">Links</h3>
+							<p class="card__text">
+								A page where I keep links to materials that are important to me.
+							</p>
+						</div>
+					</div>
+					<!-- --------- -->
+				</div>
+				<div data-tab="2" class="catalog__item">
+					<!-- Js libery -->
+					<div class="card">
+						<a href="pages/lib.html" data-json-path="javaLibery"  class="card__img-ibg">
+							<img src="img/Catalog/js-libery.png" alt="img" class="card__img">
+						</a>
+						<div class="card__content">
+							<h3 class="card__title">JS Libery</h3>
+							<p class="card__text">
+								A collection of material I have passed on JavaScript.
+							</p>
+						</div>
+					</div>
+					<!-- --------- -->
+					 <!-- Git libery -->
+					<div class="card">
+						<a href="pages/lib.html" data-json-path="gitLibery"  class="card__img-ibg">
+							<img src="img/index/box-lib/github.jpg" alt="img" class="card__img">
+						</a>
+						<div class="card__content">
+							<h3 class="card__title">Git Libery</h3>
+							<p class="card__text">
+								All what i know about GitHub.
+							</p>
+						</div>
+					</div>
+					<!-- --------- -->
+				</div>
+				<div data-tab="3" class="catalog__item">
+					<!-- Js practics -->
+					<div class="card">
+						<a href="#" class="card__img-ibg">
+							<img src="img/Catalog/practice.jpg" alt="img" class="card__img">
+						</a>
+						<div class="card__content">
+							<h3 class="card__title">My JS practice</h3>
+							<p class="card__text">
+								My JavaScript practice page. Here I practice, test the material I have passed.
+							</p>
+						</div>
+					</div>
+					<!-- --------- -->
+				</div>
+			</div>
+		</section>
+	</hr>
+</body>
+</html>
