@@ -1,0 +1,327 @@
+@import "base/style.scss";
+
+// colors
+$bg: #fab700;
+$text: #333;
+$shadow: #333;
+$light: #fff;
+
+
+// Header
+
+.menu-active body {
+	overflow: hidden;
+}
+
+.header {
+
+		// .header__container
+		&__container {
+            min-height: rem(72);
+            display: flex;
+            align-items: center;
+			column-gap: 15px;
+			margin-bottom: rem(30);
+		}
+
+		// .header__logo
+		&__logo {
+            flex: 1 1 auto;
+			position: relative;
+			z-index: 90;
+		}
+
+		// .header__img
+		&__img {
+		}
+
+		// .header__link
+		&__link {
+            font-weight: 500;
+            font-size: rem(16);
+			position: relative;
+			z-index: 90;
+		}
+
+		&__menu {}
+}
+
+.menu {
+
+	&__icon {
+		width: 30px;
+		height: 24px;
+		position: relative;
+		z-index: 90;
+
+		& span {
+			position: absolute;
+			top: calc(50% - 2px);
+			left: 0;
+			height: 3px;
+			width: 100%;
+			background-color: #000;
+		}
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 3px;
+			width: 100%;
+			background-color: #000;
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			height: 3px;
+			width: 100%;
+			background-color: #000;
+		}
+	}
+
+	// .menu__body
+
+	&__body {
+		position: absolute;
+		top: rem(72);
+		left: 50%;
+		transform: translate(0, -50%);
+		height: 0px;
+		width: 0px;
+		// width: 100%;
+		font-size: rem(32);
+		background-color: $bg;
+		color: $text;	
+		z-index: 80;
+		overflow: hidden;
+
+		.menu-active & {
+			animation: menuAnimation .6s ease forwards;
+		}
+		
+	}
+
+	// .menu__items
+
+	&__items {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		row-gap: rem(20);
+		margin: rem(82);
+	
+	}
+
+	// .menu__item
+
+	&__item {
+	}
+
+	// .menu__btn
+
+	&__btn {
+	}
+}
+
+
+//  Main
+
+.term {
+	// .term__container
+	&__container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 40px;
+	}
+}
+
+// Add menu
+.add {
+
+	& {
+		background-color: $bg;
+		color: $text;
+		border: 3px solid $shadow;
+		border-radius: 4px;
+		padding: rem(20);
+		box-shadow: .5rem .5rem 0 $shadow;
+		
+
+		& > *:not(:last-child) {
+			margin-bottom: rem(15);
+		}
+	}
+
+	// .add__title
+	&__title {
+		font-size: rem(24);
+		font-weight: 700;
+		text-align: center;
+		margin: 0 0 10px 0;
+	}
+
+	&__subtitle {
+		font-size: rem(20);
+		font-weight: 500;
+	}
+
+	&__text {
+
+	}
+
+	&__important {
+		color: #ff0000;
+	}
+
+
+	&__btns {
+		display: flex;
+		gap: 15px;
+		font-size: rem(18);
+	}
+
+	// .add__btn-confirm
+	&__btn-confirm {
+		padding: 8px 12px;
+		font-weight: 900;
+		background-color: $light;
+		border-radius: 4px;
+
+		&:hover, &:focus {
+			outline: none;
+			color: $bg;
+		}
+	}
+
+	&__btn-reset {
+		padding: 8px 12px;
+
+		&:hover, &:focus {
+			outline: none;
+			color: $light;
+		}
+	}
+}
+
+// Panel whith date
+.show-term {
+}
+
+// Stylization of forms
+
+// Selects
+
+.select {
+	position: relative;
+	width: 100%;
+  
+	&__title {
+	  font-size: rem(16);
+	  margin-bottom: 5px;
+	}
+  
+	&__native {
+	//   display: none;
+		width: 100%;
+		padding: 8px 12px;
+		background-color: $bg;
+		line-height: 1.3;
+		font-size: rem(16);
+		border: 1px solid $text;
+
+		&:focus {
+			outline: 1px solid $light;
+			border-radius: 4px;
+			color: $light;
+		}
+	}
+  
+  }
+  
+// Input
+
+.input {
+
+	&{
+		position: relative;
+		border: 1px solid $bg;
+		font-size: rem(16);
+	}
+
+	&_date &__label{
+		top: 0;
+		left: 5px;
+        transform: translate(0, -60%) scale(.8);
+	}
+
+	&__field {
+		width: 100%;
+		position: relative;
+		padding: 8px 12px;
+		background-color: $bg;
+		border: 1px solid $text;
+		line-height: 1.3;
+		color: $text;
+
+		&.active {
+			outline: 1px solid $light;
+			border-radius: 4px;
+		}
+
+		&.active + .input__label {
+			top: 0;
+			left: 5px;
+        	transform: translate(0, -60%) scale(.8);
+			color: $light;
+		}
+
+	
+    }
+
+	&__label {
+		position: absolute;
+		top: 50%;
+		left: 10px;
+		transform: translate(0, -50%);
+		background-color: $bg;
+		padding: 0 2px;
+		transition: all .2s ease;
+		
+	}
+}
+
+
+@keyframes menuAnimation {
+	0% {
+		left: 50%;
+		transform: translate(0, -50%);
+		width: 0;
+		height: 3px;
+		overflow: hidden;
+	}
+
+	50% {
+		top: rem(72);
+		left: 0;
+		transform: translate(0, 0);
+		width: 100%;
+		height: 3px;
+		overflow: auto;
+	}
+
+	100% {
+		top: 0;
+		left: 0;
+		transform: translate(0, 0);
+		width: 100%;
+		height: 100vh;
+		overflow: auto;
+	}
+}

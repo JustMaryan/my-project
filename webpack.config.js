@@ -14,6 +14,9 @@ export default (env) => {
         entry: {
             index: path.resolve(__dirname, 'src/js/index'),  // Абсолютний шлях до entry
             lib: path.resolve(__dirname, 'src/js/lib'),  // Абсолютний шлях до entry
+            jsPractice: path.resolve(__dirname, 'src/js/js-practice'),
+            links: path.resolve(__dirname, 'src/js/links'),
+            term: path.resolve(__dirname, 'src/js/term'),
             // app: path.resolve(__dirname, 'src/js/app'),
         },
         //* Передаємо точки входу для html
@@ -27,6 +30,21 @@ export default (env) => {
                 template: path.resolve(__dirname, 'src/pages/lib.html'),  // Абсолютний шлях до шаблону HTML
                 filename: 'pages/lib.html',
                 chunks: ['lib'], // Вказуємо необхідні js файли для підключення сторінки
+            },
+            {
+                template: path.resolve(__dirname, 'src/pages/js-practice.html'),  // Абсолютний шлях до шаблону HTML
+                filename: 'pages/js-practice.html',
+                chunks: ['jsPractice'], // Вказуємо необхідні js файли для підключення сторінки
+            },
+            {
+                template: path.resolve(__dirname, 'src/pages/links.html'),  // Абсолютний шлях до шаблону HTML
+                filename: 'pages/links.html',
+                chunks: ['links'], // Вказуємо необхідні js файли для підключення сторінки
+            },
+            {
+                template: path.resolve(__dirname, 'src/pages/term.html'),  // Абсолютний шлях до шаблону HTML
+                filename: 'pages/term.html',
+                chunks: ['term'], // Вказуємо необхідні js файли для підключення сторінки
             },
         ],
         fonts: path.resolve(__dirname, 'fonts'),
