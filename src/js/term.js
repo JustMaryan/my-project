@@ -27,21 +27,26 @@ function pageEvents (e) {
     const panelElement = target.closest('[data-term]');
     const panelValue =  panelElement ? panelElement.getAttribute('data-term') : null;
 
+    console.log(target)
+
     const eventsList = {
         addFood: addFoodToLibrary,
         // addShop: addShopinLibary,
-        // addDate: addDateinLibary
+        // addDate: addDateinLibary,
+        addFoodPanel: createFoodPanel,
     }
 
-    if (target.closest('.menu__icon')) {
+    if (target.closest('.header__btn')) {
         document.documentElement.classList.toggle('menu-active');
     }
 
     if(eventsList[panelValue]) {
-        eventsList[panelValue](target)
+        eventsList[panelValue](target);
     }
+}
 
-
+function createFoodPanel (e) {
+    document.querySelector('[data-term-panel]').insertAdjacentHTML('beforeend', htmlBlocks[e.closest('[data-term]').getAttribute('data-term')]);
 }
 
 function addFoodToLibrary(target) {
@@ -192,4 +197,104 @@ const termsProducts = {
             }
         }
     },
+}
+
+
+const htmlBlocks = {
+    addFoodPanel: `
+                <div data-term="panel" class="add">
+                    <h4 class="add__title">Продукти</h4>
+                    <h5 class="add__subtitle"><span class="add__important">*</span>Вкажіть категорію продукції</h5>
+                    <div  class="select">
+                        <h6 class="select__title">Виберіть категорію продуктів:</h6>
+                        <select data-term="food-type" class="select__native">
+                            <option value="0">Львівське світле</option>
+                            <option value="1">Львівське 2</option>
+                            <option value="2">Львівське 3е</option>
+                            <option value="3">Львівське с43543ле</option>
+                            <option checked value="4">Львівське 0</option>
+                        </select>
+                    </div>  
+                    <p class="add__text">...або добавте свою</з>
+                    <div  class="input">
+                        <input data-term="food-new-type" id="food-category" class="input__field" type="text">
+                        <label for="food-category" class="input__label">Категорія продукції</label>
+                    </div>
+                    <h5 class="add__subtitle"><span class="add__important">*</span>Вкажіть назву продукції</h5>
+                    <div class="input">
+                        <input data-term="food-name" id="food-name" class="input__field" type="text">
+                        <label for="food-name" class="input__label">Продукт</label>
+                    </div>
+                    <div class="add__btns">
+                        <button data-term="addFood" class="add__btn-confirm">Добавити</button>
+                        <button class="add__btn-reset">Очистити</button>
+                    </div>
+                </div>`,
+    addShopPanel: `
+                <div class="add">
+                    <h4 class="add__title">Магазин</h4>
+                    <h5 class="add__subtitle"><span class="add__important">*</span>Вкажіть мережу магазина</h5>
+                    <div class="select">
+                        <h6 class="select__title">Виберіть мережу:</h6>
+                        <select class="select__native">
+                            <option value="1">Свій маркет</option>
+                            <option value="2">Близенько</option>
+                            <option value="3">Сімі</option>
+                            <option value="4">Рукавичка</option>
+                            <option value="4">АТБ</option>
+                            <option value="4">Арсен</option>
+                        </select>
+                    </div>  
+                    <h5 class="add__subtitle"><span class="add__important">*</span>Вкажіть назву магазина</h5>
+                    <div class="input">
+                        <input id="shop-name" class="input__field" type="text">
+                        <label for="shop-name" class="input__label">Магазин</label>
+                    </div>
+                    <div class="add__btns">
+                        <button class="add__btn-confirm">Добавити</button>
+                        <button class="add__btn-reset">Очистити</button>
+                    </div>
+                </div>`,
+    addDatePanel: `
+                <div class="add">
+                    <h4 class="add__title">Дата продукта</h4>
+                    <h5 class="add__subtitle"><span class="add__important">*</span>Вкажіть назву магазина</h5>
+                    <div class="select">
+                        <h6 class="select__title">Виберіть магазин:</h6>
+                        <select class="select__native">
+                            <optgroup label="Група 1">
+                                <option value="1">Опція 1</option>
+                                <option value="2">Опція 2</option>
+                            </optgroup>
+                            <optgroup label="Група 2">
+                                <option value="3">Опція 3</option>
+                                <option value="4">Опція 4</option>
+                            </optgroup>
+                        </select>
+                    </div>    
+                    <h5 class="add__subtitle"><span class="add__important">*</span>Вкажіть назву продукції</h5>                                                           
+                    <div class="select">
+                        <h6 class="select__title">Виберіть продукт:</h6>
+                        <select class="select__native">
+                            <optgroup label="Група 1">
+                                <option value="1">Опція 1</option>
+                                <option value="2">Опція 2</option>
+                            </optgroup>
+                            <optgroup label="Група 2">
+                                <option value="3">Опція 3</option>
+                                <option value="4">Опція 4</option>
+                            </optgroup>
+                        </select>
+                    </div>  
+                    <h5 class="add__subtitle"><span class="add__important">*</span>Вкажіть кінцеву дату</h5>       
+                    <div class="input input_date">
+                        <input id="deadline-food" class="input__field" type="date">
+                        <label for="deadline-food" class="input__label">Дата</label>
+                    </div>
+                    <div class="add__btns">
+                        <button class="add__btn-confirm">Добавити</button>
+                        <button class="add__btn-reset">Очистити</button>
+                    </div>      
+                </div>
+    `
 }

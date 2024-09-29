@@ -9,11 +9,20 @@ $light: #fff;
 
 // Header
 
-.menu-active body {
-	overflow: hidden;
-}
+// .menu-active body {
+// 	overflow: hidden;
+// }
 
 .header {
+		& {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			z-index: 100;
+			background-color: #fab700;
+			// border-bottom: 1px solid #000;
+		}
 
 		// .header__container
 		&__container {
@@ -21,14 +30,14 @@ $light: #fff;
             display: flex;
             align-items: center;
 			column-gap: 15px;
-			margin-bottom: rem(30);
+			position: relative;
+			z-index: 90;
+			background-color: #fab700;
 		}
 
 		// .header__logo
 		&__logo {
             flex: 1 1 auto;
-			position: relative;
-			z-index: 90;
 		}
 
 		// .header__img
@@ -39,81 +48,92 @@ $light: #fff;
 		&__link {
             font-weight: 500;
             font-size: rem(16);
-			position: relative;
-			z-index: 90;
 		}
 
-		&__menu {}
+		&__btn {
+			width: 30px;
+			height: 24px;
+			position: relative;
+			z-index: 90;
+			overflow: hidden;
+		
+			& span {
+				position: absolute;
+				top: calc(50% - 2px);
+				left: 0;
+				height: 3px;
+				width: 100%;
+				background-color: #000;
+				transition: all .3s ease;
+			}
+		
+			&::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				height: 3px;
+				width: 100%;
+				background-color: #000;
+				transform-origin: 50%;
+				transition: all .3s ease;
+			}
+		
+			&::after {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				height: 3px;
+				width: 100%;
+				background-color: #000;
+				transform-origin: 50%;
+				transition: all .3s ease;
+			}
+		
+			.menu-active & span {
+				left: 100%;
+			}
+		
+			.menu-active &::before {
+				transform: rotate(-45deg);
+				top: 45%;
+				left: 0;
+			}
+		
+			.menu-active &::after {
+				top: 45%;
+				left: 0;
+				transform: rotate(45deg);
+			}
+		}
 }
 
 .menu {
 
-	&__icon {
-		width: 30px;
-		height: 24px;
-		position: relative;
-		z-index: 90;
-
-		& span {
-			position: absolute;
-			top: calc(50% - 2px);
-			left: 0;
-			height: 3px;
-			width: 100%;
-			background-color: #000;
-		}
-
-		&::before {
-			content: '';
-			position: absolute;
-			top: 0;
-			left: 0;
-			height: 3px;
-			width: 100%;
-			background-color: #000;
-		}
-
-		&::after {
-			content: '';
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			height: 3px;
-			width: 100%;
-			background-color: #000;
-		}
-	}
-
-	// .menu__body
-
-	&__body {
+	& {
 		position: absolute;
-		top: rem(72);
-		left: 50%;
-		transform: translate(0, -50%);
-		height: 0px;
-		width: 0px;
-		// width: 100%;
-		font-size: rem(32);
-		background-color: $bg;
-		color: $text;	
 		z-index: 80;
-		overflow: hidden;
+		bottom: -1px;
+		left: 0;
+		width: 100%;
+		background-color: #fab700;
+		font-size: rem(24);
+		transition: all .3s ease;
+		border-bottom: 1px solid #000;
 
 		.menu-active & {
-			animation: menuAnimation .6s ease forwards;
+			bottom: 2px;
+			transform: translate(0%, 100%);
 		}
-		
 	}
-
 	// .menu__items
-
 	&__items {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		row-gap: rem(20);
-		margin: rem(82);
+		padding: rem(20) 0 rem(40);
 	
 	}
 
@@ -132,6 +152,7 @@ $light: #fff;
 //  Main
 
 .term {
+
 	// .term__container
 	&__container {
 		display: flex;
@@ -139,6 +160,7 @@ $light: #fff;
 		align-items: center;
 		justify-content: center;
 		gap: 40px;
+		margin-top: rem(102) ;
 	}
 }
 
@@ -294,34 +316,5 @@ $light: #fff;
 		padding: 0 2px;
 		transition: all .2s ease;
 		
-	}
-}
-
-
-@keyframes menuAnimation {
-	0% {
-		left: 50%;
-		transform: translate(0, -50%);
-		width: 0;
-		height: 3px;
-		overflow: hidden;
-	}
-
-	50% {
-		top: rem(72);
-		left: 0;
-		transform: translate(0, 0);
-		width: 100%;
-		height: 3px;
-		overflow: auto;
-	}
-
-	100% {
-		top: 0;
-		left: 0;
-		transform: translate(0, 0);
-		width: 100%;
-		height: 100vh;
-		overflow: auto;
 	}
 }
