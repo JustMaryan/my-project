@@ -1,7 +1,7 @@
 import "../scss/lib.scss";
 
-import javaLibery from '../json/cribLibaryJs.json' assert { type: 'json' };
-import gitLibery from '../json/cribLibaryGit.json' assert { type: 'json' };
+import javaLibrary from '../json/cribLibaryJs.json' assert { type: 'json' };
+import gitLibrary from '../json/cribLibaryGit.json' assert { type: 'json' };
 
 import { spollers } from  "./components/files/functions.js";
 
@@ -9,15 +9,15 @@ import { addElement, addCode, order, clear, save, edit, remove, localSave } from
 
 import { link, modifyText, btnDecor } from './components/libFiles/modifyContent.js';
 
-let cribLibery;
+let cribLibrary;
 const jsonIdentifier = localStorage.getItem('jsonPath');
 switch (jsonIdentifier) {
-    case 'javaLibery':
-        cribLibery = javaLibery;
+    case 'javaLibrary':
+        cribLibrary = javaLibrary;
         loadCribPage()
         break;
-    case 'gitLibery':
-        cribLibery = gitLibery;
+    case 'gitLibrary':
+        cribLibrary = gitLibrary;
         loadCribPage()
         break;
     default:
@@ -48,13 +48,11 @@ function cribAction(e) {
 function loadCribPage() {
     const bodyCrib = document.querySelector('[data-crib-body]');
     const menuCrib = document.querySelector('[data-crib-menu]');
-
-    console.log(cribLibery)
     
-    const cribLiberyMenu = cribLibery.newMenu;
-    menuCrib.insertAdjacentHTML('afterbegin', cribLiberyMenu);
-    const cribLiberyBody = cribLibery.newDocument;
-    bodyCrib.insertAdjacentHTML('beforeend', cribLiberyBody);
+    const cribLibraryMenu = cribLibrary.newMenu;
+    menuCrib.insertAdjacentHTML('afterbegin', cribLibraryMenu);
+    const cribLibraryBody = cribLibrary.newDocument;
+    bodyCrib.insertAdjacentHTML('beforeend', cribLibraryBody);
 
     const content = localStorage.getItem('cribContent');
     
