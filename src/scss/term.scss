@@ -235,60 +235,63 @@ $warning: #ff0000;
 
 .date {
 
-	&{
-		display: flex;
-		justify-content: center;
-	}
 
-
-	&__wrapper{
-		background-color: #fff;
-		color: #000;
-		margin: rem(25);
+	&__container{
+		color: #fff;
 		padding: rem(15);
 		font-size: rem(18);
-		border-radius: 8px;
-		width: 600px;
+
 	}
 
 	&__header {
 		display: flex;
 		flex-wrap: wrap;
-		gap: rem(5);
-		margin-bottom: rem(10);
+		align-items: center;
+		justify-content: center;
+		gap: rem(15);
+		margin-bottom: rem(20);
+		background-color: #333;
+		border-radius: 15px;
+		padding: rem(15);
 		
 	}
 	// .date__title
 
 	&__title {
+		text-align: center;
+		font-size: rem(24);
+		font-weight: 700;
+		margin-bottom: rem(25);
 	}
 
 	// .date__items
 
 	&__items {
-		border: 2px solid #000;
-		border-radius: 8px;
-		background-color: #000;
+		// border-radius: 15px;
+		// background-color: #333;
+		padding: rem(20) 0;
 	}
+
 
 	// .date__item
 
 	&__item {
-		padding: rem(5);
-		&:not(:last-child) {
-			border-bottom: 1px solid #fff;
-		}
 	}
 
 
 	// .date__btn
 	&__btn {
-
-		background-color: #000;
-		color: #fff;
-		padding: rem(8) rem(10);
-		font-weight: 500;
+		background-color: #fff;
+		color: #000;
+		padding: rem(10) rem(14);
+		font-weight: 700;
 		border-radius: 8px;
+		box-shadow: 5px 5px 1px #000;
+
+		&:hover {
+			transform: translate(5px, 5px);
+			box-shadow: 0px 0px 1px #000;
+		}
 
 		&_save {
 
@@ -297,104 +300,275 @@ $warning: #ff0000;
 
 
 }
+// .shop {
+
+// 	&{
+// 		color: #fff;
+// 		padding: 5px 40px;
+// 		position: relative;
+// 		font-weight: 700;
+// 		&::before {
+// 			content: '';
+// 			width: 30px;
+// 			height: 30px;
+// 			position: absolute;
+// 			z-index: 50;
+// 			top: calc(50% - 15px);
+// 			left: 5px;
+// 			border-radius: 50%;
+// 		}
+// 	}
+
+// 	&_sviu-market {
+// 		position: relative;
+
+// 		&::before {
+// 			background: url('../img/terms/sviumarket.jpg') 50% / 100% no-repeat;
+// 		}
+// 	}
+
+// 	&_blizenko {
+// 		position: relative;
+
+// 		&::before {
+// 			background: #2d721e url('../img/terms/blisenko.png') 50% / 100% no-repeat;
+// 		}
+// 	}
+
+// 	&_rukavichka {
+// 		position: relative;
+
+// 		&::before {
+// 			background: url('../img/terms/s.jpg') 50% / 100% no-repeat;
+// 		}
+// 	}
+
+// 	&_atb {
+// 		position: relative;
+
+// 		&::before {
+// 			background: url('../img/terms/atb.png') 50% / 100% no-repeat;
+// 		}
+// 	}
+
+
+// 	&_simi {
+// 		position: relative;
+
+// 		&::before {
+// 			background: url('../img/terms/simi.png') 50% / 100% no-repeat;
+// 		}
+// 	}
+
+// 	&_arsen {
+// 		position: relative;
+
+// 		&::before {
+// 			background: url('../img/terms/arsen.png') 50% / 100% no-repeat;
+// 		}
+// 	}
+
+
+
+// 	&__product {
+// 	}
+
+// 	&__body {
+// 		min-height: rem(40);
+// 		display: flex;
+// 		flex-direction: column;
+// 		justify-content: center;
+// 		align-items: center;
+// 		gap: rem(5);
+// 	}
+
+
+// 	&__days {
+// 	}
+
+// 	&__menu-icon {
+// 		font-weight: 700;
+// 		width: 30px;
+// 		height: 30px;
+// 		border: 2px solid #fff;
+// 		// color: #000;
+// 		border-radius: 50%;
+// 		position: absolute;
+// 		top: calc(50% - 15px);
+// 		right: 5px;
+// 	}
+// }
+
+
 .shop {
 
-	&{
-		color: #fff;
-		padding: 5px 40px;
-		position: relative;
+	& {
+		margin-bottom: rem(15);
+	}
+
+
+	&__title {
+		font-size: rem(20);
+		letter-spacing: 1.2px;
 		font-weight: 700;
-		&::before {
+		min-height: rem(58);
+		max-width: max-content;
+		position: relative;
+		padding: 0 rem(10) 0 rem(57);
+		display: flex;
+		flex-direction: row-reverse;
+		justify-content: flex-end;
+		align-items: center;
+		background-color: #333;
+		border-radius: 15px;
+
+		&::after {
 			content: '';
-			width: 30px;
-			height: 30px;
 			position: absolute;
-			z-index: 50;
-			top: calc(50% - 15px);
-			left: 5px;
+			top: calc(50% - 23px);
+			left: 6px;
+			width: 46px;
+			height: 46px;
 			border-radius: 50%;
+			background: #000;
 		}
-	}
-
-	&_sviu-market {
-		position: relative;
 
 		&::before {
-			background: url('../img/terms/sviumarket.jpg') 50% / 100% no-repeat;
+			font-weight: 700;
+			transition: transform .3s ease;
 		}
-	}
 
-	&_blizenko {
-		position: relative;
-
-		&::before {
-			background: #2d721e url('../img/terms/blisenko.png') 50% / 100% no-repeat;
+		&._spoller-active::before {
+			transform: rotate(90deg);
 		}
-	}
 
-	&_rukavichka {
-		position: relative;
+		// Рукавичка
+		.shop_rukavichka & {
+			background-color: #f19229;
+		}
 
-		&::before {
+		.shop_rukavichka &::after {
 			background: url('../img/terms/s.jpg') 50% / 100% no-repeat;
 		}
-	}
 
-	&_atb {
-		position: relative;
+		// АТБ
+		.shop_atb & {
+			background-color: #aaa;
+		}
 
-		&::before {
+		.shop_atb &::after{
 			background: url('../img/terms/atb.png') 50% / 100% no-repeat;
 		}
-	}
 
-
-	&_simi {
-		position: relative;
-
-		&::before {
-			background: url('../img/terms/simi.png') 50% / 100% no-repeat;
+		// Арсен
+		.shop_arsen & {
+			background-color: #ED1C24;
 		}
-	}
-
-	&_arsen {
-		position: relative;
-
-		&::before {
+		.shop_arsen &::after{
 			background: url('../img/terms/arsen.png') 50% / 100% no-repeat;
 		}
+		// Близенько
+		.shop_blizenko & {
+			background-color: #42af2a;
+		}
+		.shop_blizenko &::after {
+			background: url('../img/terms/blisenko.png') 50% / 100% no-repeat;
+		}
+		// Свій маркет
+		.shop_sviumarket & {
+			background-color: #f43651;
+		}
+		.shop_sviumarket &::after{
+			background: url('../img/terms/sviumarket.jpg') 50% / 100% no-repeat;
+		}
+		// Сімі
+		.shop_simi & {
+			background-color: #753cbd;
+		}
+		.shop_simi &::after{
+			background: url('../img/terms/simi.png') 50% / 100% no-repeat;
+		}
+
 	}
 
+	// .shop__icon-menu
 
-
-	&__product {
+	&__icon-menu {
 	}
 
-	&__body {
-		min-height: rem(40);
+	// .shop__items
+
+	&__items {
+		margin: 10px 0;
+	}
+
+	// .shop__item
+
+	&__item {
 		display: flex;
-		flex-direction: column;
-		justify-content: center;
 		align-items: center;
 		gap: rem(5);
+		background-color: #333;
+		border-radius: 15px;
+		padding: rem(8) rem(12);
+
+		&:not(:last-child) {
+			margin-bottom: 10px;
+		}
+
+		.shop_rukavichka & {
+			background-color: #f19229;
+		}
+
+		.shop_atb & {
+			background-color: #aaa;
+		}
+
+		.shop_arsen & {
+			background-color: #ED1C24;
+		}
+
+		.shop_blizenko & {
+			background-color: #42af2a;
+		}
+
+		.shop_sviumarket & {
+			background-color: #f43651;
+		}
+
+		.shop_simi & {
+			background-color: #753cbd;
+		}
 	}
 
-
-	&__days {
-	}
-
-	&__menu-icon {
+	&__btn-info {
 		font-weight: 700;
+		border: 2px solid #fff;
+		border-radius: 50%;
 		width: 30px;
 		height: 30px;
-		border: 2px solid #fff;
-		// color: #000;
-		border-radius: 50%;
-		position: absolute;
-		top: calc(50% - 15px);
-		right: 5px;
+	}
+
+	// .shop__product
+
+	&__product {
+		font-weight: 700;
+		font-size: rem(18);
+	}
+
+	&__span {
+		color: #000;
+		font-weight: 900;
+	}
+
+	// .shop__days
+
+	&__days {
+		flex: 1 1 auto;
 	}
 }
+
+
 
 .info {
 
@@ -408,6 +582,7 @@ $warning: #ff0000;
 		justify-content: center;
 		align-items: center;
 		background-color: rgba(0, 0, 0, 0.8);
+		
 		z-index: 99;
 		color: #fff;
 	}
@@ -422,6 +597,7 @@ $warning: #ff0000;
 		display: flex;
 		flex-direction: column;
 		row-gap: 15px;
+		border-radius: 15px;
 	}
 
 	// .info__btns
@@ -686,3 +862,64 @@ $warning: #ff0000;
 		
 	}
 }
+
+.new-date {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 100;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(0, 0, 0, 0.9);
+
+	// .new-date__wrapper
+
+	&__wrapper {
+		padding: rem(25);
+		border-radius: 15px;
+		border: 1px solid #fff;
+		background-color: #000;
+		display: flex;
+		flex-direction: column;
+		row-gap: 20px;
+		color: #fff;
+	}
+
+	// .new-date__text
+
+	&__text {
+		font-size: rem(18);
+	}
+
+	&__title {
+		font-size: rem(24);
+	}
+
+	// .new-date__select
+
+	&__select {
+		padding: rem(10);
+	}
+
+	// .new-date__input
+
+	&__input {
+		padding: rem(10);
+	}
+
+	&__btns {}
+
+	// .new-date__btn-save
+
+	&__btn-save {
+	}
+
+	// .new-date__btn-remove
+
+	&__btn-remove {
+	}
+}
+
