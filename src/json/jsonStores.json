@@ -1,0 +1,81 @@
+[
+  {
+    "address": "Кошиця",
+    "category": "Свій маркет",
+    "foodDates": []
+  },
+  {
+    "address": "Малоголосківська",
+    "category": "Свій маркет",
+    "foodDates": []
+  },
+  {
+    "address": "Малоголосківська 16",
+    "category": "Близенько",
+    "foodDates": []
+  },
+  {
+    "address": "Малоголосківська 12",
+    "category": "Близенько",
+    "foodDates": []
+  },
+  {
+    "address": "Чорновола 69",
+    "category": "Близенько",
+    "foodDates": []
+  },
+  {
+    "address": "Чорновола 101",
+    "category": "Близенько",
+    "foodDates": []
+  },
+  {
+    "address": "Підголоско",
+    "category": "Близенько",
+    "foodDates": []
+  },
+  {
+    "address": "Малоголосківська",
+    "category": "АТБ",
+    "foodDates": []
+  },
+  {
+    "address": "Замарстинівська",
+    "category": "АТБ",
+    "foodDates": []
+  },
+  {
+    "address": "Чорновола",
+    "category": "Арсен",
+    "foodDates": []
+  },
+  {
+    "address": "Чорновола",
+    "category": "Рукавичка",
+    "foodDates": []
+  },
+  {
+    "address": "Панча",
+    "category": "Рукавичка",
+    "foodDates": []
+  },
+  {
+    "address": "Варшавська",
+    "category": "Рукавичка",
+    "foodDates": []
+  },
+  {
+    "address": "Малоголосківська",
+    "category": "Рукавичка",
+    "foodDates": []
+  },
+  {
+    "address": "Малоголосківська",
+    "category": "Сімі",
+    "foodDates": [
+      "Львівське 1715 жб, 2024-10-20",
+      "Львівське світле жб, 2024-10-19",
+      "Темний лев жб, 2024-10-10"
+    ]
+  }
+]

@@ -7,36 +7,26 @@
 </head>
 <body>
     <div class="wrapper">
-        <!-- HEADER -->
+        <!-- Header -->
         <div class="header"> 
             <div class="header__container">
                 <div class="header__logo">
                     <img class="header__img" src="../img/JsPractice/logo.svg" alt="Logo">
                 </div>
                 <a href="../index.html" class="header__link">Home page</a>
-                <!-- Burger button -->
-                <button hidden class="header__btn"><span></span></button>
             </div>       
-            <!-- Burger menu -->
-            <div hidden class="header__menu menu">
-                <ul class="menu__items">
-                    <li class="menu__item"><button data-term-btn="createFoodForm" class="menu__btn">Новий продукт</button></li>
-                    <li class="menu__item"><button data-term-btn="createShopForm" class="menu__btn">Новий магазин</button></li>
-                    <li class="menu__item"><button data-term-btn="createDateForm" class="menu__btn">Нова дата</button></li>
-                </ul> 
-            </div>
         </div>
-        <!-- BODY -->
+        <!-- Body -->
         <main class="main">
             <div class="date">               
                 <div class="date__container">
                    <div class="date__header">
-                       <button data-date-btn="create-new-date" class="date__btn">Додати дату</button>
-                       <button class="date__btn date__btn_save">Зберегти</button>
+                       <button data-btn="newDate" class="date__btn">Додати дату</button>
+                       <button data-btn="saveDocument" class="date__btn date__btn_save">Зберегти</button>
                    </div>
-                    <div data-date-container class="date__items">
+                    <div class="date__items">
                         <div class="date__title">Магазини</div>
-                        <div data-date-container class="date__item">
+                        <div data-container class="date__item">
 
                         </div>
                     </div>
@@ -44,6 +34,14 @@
             </div>
         </main>
     </div>
-    
+    <!-- Popup -->
+    <div style="visibility: hidden;" id="popup" class="popup">
+        <div class="popup__wrapper">
+            <button class="popup__btn-remove"></button>
+            <div id="popup-content" class="popup__content">
+            </div>
+        </div>
+    </div>
+     
 </body>
 </html>
