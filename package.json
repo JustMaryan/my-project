@@ -25,6 +25,7 @@
     "fontmin-webpack": "^4.0.0",
     "html-webpack-plugin": "^5.6.0",
     "mini-css-extract-plugin": "^2.9.0",
+    "monaco-editor": "^0.52.0",
     "node-sass": "^9.0.0",
     "react-router-dom": "^6.26.1",
     "sass": "^1.26.10",

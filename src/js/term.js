@@ -7,7 +7,7 @@ export let storage = jsonStorage;
 
 import { spollers } from  "./components/files/functions.js"; // spoiler
 import { inputCheck } from "./components/termFiles/inputLoader.js"; // input
-import { infoCreate, infoSave } from "./components/termFiles/infoAboutFood.js"; // info popup
+import { infoCreate, infoRemove, infoSave } from "./components/termFiles/infoAboutFood.js"; // info popup
 import { saveDocument } from "./components/termFiles/downloadFiles.js"; // download
 import { createNewDate, saveNewDate } from "./components/termFiles/createNewDate.js"; // new date
 
@@ -53,6 +53,7 @@ function pageEvents(e) {
 const events = {
     info: infoCreate,
     infoSave: infoSave,
+    infoRemove: infoRemove,
     newDate: createNewDate,
     newDateSave: saveNewDate,
     saveDocument: saveDocument,
@@ -93,6 +94,7 @@ export function pageLoading() {
                         <div data-food-index="${foodDatesIndex}" class="shop__item">
                             <p data-date="name" class="shop__product">${foodName} :</p> 
                             <p data-date="days" class="shop__days"><span class="shop__span">${foodDaysLeft}</span> днів</p>
+                            <button data-btn="infoRemove" class="shop__btn-remove _icon-plus"></button>  
                             <button data-btn="info" class="shop__btn-info">i</button>  
                         </div>
                     </div>
@@ -105,6 +107,7 @@ export function pageLoading() {
             shopInCalculation.querySelector('.shop__items').insertAdjacentHTML('beforeend', ` <div data-food-index="${foodDatesIndex}" class="shop__item">
                             <p data-date="name" class="shop__product">${foodName} :</p> 
                             <p data-date="days" class="shop__days"><span class="shop__span">${foodDaysLeft}</span> днів</p>
+                            <button data-btn="infoRemove" class="shop__btn-remove _icon-plus"></button>  
                             <button data-btn="info" class="shop__btn-info">i</button>  
                         </div>`)
         }

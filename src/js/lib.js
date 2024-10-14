@@ -4,10 +4,10 @@ import javaLibrary from '../json/cribLibaryJs.json' assert { type: 'json' };
 import gitLibrary from '../json/cribLibaryGit.json' assert { type: 'json' };
 
 import { spollers } from  "./components/files/functions.js";
-
-import { addElement, addCode, order, clear, save, edit, remove, localSave } from './components/libFiles/operations.js';
-
+import { addElement, order, clear, save, remove, localSave } from './components/libFiles/operations.js';
 import { link, modifyText, btnDecor } from './components/libFiles/modifyContent.js';
+import addCode from "./components/libFiles/code.js"; // code creator parth
+import edit from "./components/libFiles/edit.js"; // edit chapter function
 
 let cribLibrary;
 const jsonIdentifier = localStorage.getItem('jsonPath');
@@ -32,9 +32,9 @@ document.querySelector('.crib').addEventListener('click', cribAction);
 function cribAction(e) {
     const target = e.target;
     // Взаємодія з елементами редагування
-    if (target.closest('[data-crib-btn]')) {
-        const cribButton = target.closest('[data-crib-btn]');
-        const cribButtonValue = cribButton.dataset.cribBtn;
+    if (target.closest('[data-btn]')) {
+        const cribButton = target.closest('[data-btn]');
+        const cribButtonValue = cribButton.dataset.btn;
         cribButtons(cribButton, cribButtonValue);
     }
     // Меню шпаргалки
@@ -66,7 +66,7 @@ function loadCribPage() {
         let matchFound = false;
         for (let i = 0; i < titles.length; i++) {
             if (titles[i].innerText === contentTitle) {
-                titles[i].closest('[data-crib-container]').outerHTML = content;
+                titles[i].closest('[data-chapter]').outerHTML = content;
                 matchFound = true;
                 break;
             }
@@ -86,7 +86,7 @@ spollers();
 
 function cribButtons(button, buttonValue) {
     const cribBody = document.querySelector('[data-crib-body]');
-    const cribContainer = button.closest('[data-crib-container]');
+    const cribContainer = button.closest('[data-chapter]');
     const cribItems = cribContainer?.querySelector('[data-crib-items]');
     const cribItem = button.closest('[data-crib-item]');
     const cribContent = cribItem?.querySelector("[data-crib-content]");

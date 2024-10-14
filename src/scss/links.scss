@@ -2,25 +2,18 @@
 
 .header {
 
-		// .header__container
 		&__container {
             min-height: rem(72);
             display: flex;
             align-items: center;
 		}
 
-		// .header__logo
-
 		&__logo {
             flex: 1 1 auto;
 		}
 
-		// .header__img
-
 		&__img {
 		}
-
-		// .header__link
 
 		&__link {
             font-weight: 500;
@@ -29,13 +22,9 @@
 }
 .page {
 
-		// .page__container
-
 		&__container {
             padding: rem(52) rem(15);
 		}
-
-		// .page__content
 
 		&__content {
             
@@ -49,11 +38,11 @@
 		// .reference__title
 		&__title {
             font-weight: 700;
-            font-size: rem(32);
+            font-size: rem(24);
             display: flex;
             flex-direction: row-reverse;
             justify-content: space-between;
-            column-gap: 5px;
+            column-gap: rem(5);
             width: 100%;
             border-bottom: 2px solid #000;
             padding: rem(10) rem(5);
@@ -72,16 +61,17 @@
 		// .reference__content
 
 		&__content {
+            padding: rem(15) 0;
 		}
 
 		// .reference__link
 
 		&__link {
             display: flex;
-            gap: rem(15) rem(45);
-            margin: 25px 0 0 0;
-            padding: 0 0 0 5px;
+            justify-content: space-between;
             border-left: 5px solid transparent;
+            margin: 0 0 rem(20) 0;
+            row-gap: rem(20);
 
             &:hover {
                 border-left: 5px solid #000;
@@ -107,20 +97,27 @@
 
 
     // .link__logo
-    &__logo-ibg {
-        padding: 40px 140px;
-        // max-height: 80px;
+    &__logo {
+        height: 40px;
+        width: 240px;
+        margin: 0 rem(40) 0 rem(5);
+        align-self: center;
     }
     // .link__img
     &__img {
+        height: 100%;
     }
     // .link__text
     &__text {
+        align-self: flex-start;
         background-color: #faf2e2;
         font-size: rem(16);
         padding: rem(8);
         border: 2px solid transparent;
-        width: 100%;
+        width: calc(100% - rem(285));
 
+        @media (max-width:$mobile) {
+            width: 100%;
+        }
     }
 }

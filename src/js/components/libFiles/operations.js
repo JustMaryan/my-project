@@ -1,24 +1,25 @@
-import { cribHTML } from "./html.js"; // Імпорт об'єкта cribHTML з файла html.js, який містить HTML-шаблони.
+import html from "./html.js";
+import edit from "./edit.js";
 
 export function addElement(cribElement, buttonValue) {
     // Додає HTML-код до cribElement на основі значення buttonValue.
-    cribElement.insertAdjacentHTML('beforeend', cribHTML[buttonValue]);
+    cribElement.insertAdjacentHTML('beforeend', html[buttonValue]);
 }
 
-export function addCode(cribItems) {
-    // Створює новий елемент з HTML-шаблону і вставляє його у cribItems.
-    const newItem = document.createRange().createContextualFragment(cribHTML.code);
-    const contentContainer = newItem.querySelector('[data-crib-content]');
-    cribItems.appendChild(newItem);
+// export function addCode(cribItems) {
+//     // Створює новий елемент з HTML-шаблону і вставляє його у cribItems.
+//     const newItem = document.createRange().createContextualFragment(html.code);
+//     const contentContainer = newItem.querySelector('[data-crib-content]');
+//     cribItems.appendChild(newItem);
 
-    // Ініціалізує CodeMirror для редагування коду з JavaScript режимом і темою "dracula".
-    CodeMirror(contentContainer, {
-        mode: "javascript",
-        theme: "dracula",
-        lineNumbers: true,
-        autoCloseBrackets: true
-    });
-}
+//     // Ініціалізує CodeMirror для редагування коду з JavaScript режимом і темою "dracula".
+//     CodeMirror(contentContainer, {
+//         mode: "javascript",
+//         theme: "dracula",
+//         lineNumbers: true,
+//         autoCloseBrackets: true
+//     });
+// }
 
 export function order(cribItems, button) {
     // Увімкнення або вимкнення можливості сортування елементів cribItems за допомогою jQuery UI sortable.
@@ -45,13 +46,13 @@ export function clear(cribItems) {
 export function save() {
     // Функція для збереження поточного стану елементів crib в JSON файл.
     const cribBody = document.querySelector('[data-crib-body]');
-    const cribContainers = [...cribBody.querySelectorAll('[data-crib-container]')]; // Перетворює NodeList в масив.
+    const cribChapter = [...cribBody.querySelectorAll('[data-chapter]')]; // Перетворює NodeList в масив.
 
     // Перебирає всі контейнери crib і викликає edit(), якщо контейнер в режимі редагування.
-    cribContainers.forEach(container => {
-        let cribItems = container.querySelector('[data-crib-items]');
-        if(container.classList.contains('_crib-edit')) {
-            edit(container, cribItems);
+    cribChapter.forEach(chapter => {
+        let cribItems = chapter.querySelector('[data-crib-items]');
+        if(chapter.classList.contains('_edit-chapter')) {
+            edit(chapter);
         }
     });
 
@@ -74,13 +75,13 @@ function assignIDsAndReturnHTML(cribBody) {
 function generateMenuHTML(cribBody) {
     // Генерує HTML меню з елементів cribBody.
     const menuContainer = document.createElement('div');
-    const cribMenuItems = [...cribBody.querySelectorAll('[data-crib-container]')];
+    const cribMenuItems = [...cribBody.querySelectorAll('[data-chapter]')];
 
     cribMenuItems.forEach(item => {
         const cribMainTitle = item.querySelector('[data-crib-content="main-title"]').innerText; // Отримує головний заголовок кожного контейнера crib.
         const cribTitles = [...item.querySelectorAll('[data-crib-content="title"]')]; // Отримує всі заголовки в контейнері.
 
-        const newItem = document.createRange().createContextualFragment(cribHTML.menu); // Створює новий елемент меню з HTML-шаблону.
+        const newItem = document.createRange().createContextualFragment(html.menu); // Створює новий елемент меню з HTML-шаблону.
         newItem.querySelector('[data-crib-menu="title"]').innerText = cribMainTitle; // Встановлює головний заголовок у меню.
 
         const cribMenuLinks = newItem.querySelector('[data-crib-menu="items"]');
@@ -106,36 +107,37 @@ function downloadJSON(data, filename) {
     a.download = filename;
     a.click(); // Імітує клік для завантаження файлу.
     URL.revokeObjectURL(url); // Відкликає тимчасовий URL після завантаження.
+    localStorage.removeItem('cribContent');
 }
 
-export function edit(cribContainer) {
-    // Вмикає режим редагування для вказаного cribContainer.
-    if (cribContainer && !cribContainer.classList.contains('_crib-edit')) {
-        editClearAll(); // Очищує будь-які інші активні редагування.
-        [...cribContainer.querySelectorAll('[data-crib-content]')].forEach(content => {
-            content.contentEditable = "true"; // Вмикає режим редагування.
-        });
-        cribContainer.classList.add('_crib-edit'); // Додає клас для позначення режиму редагування.
-    } else {
-        editClearAll(); // Очищує режим редагування, якщо він уже активний.
-    }
-}
+// export function edit(cribContainer) {
+//     // Вмикає режим редагування для вказаного cribContainer.
+//     if (cribContainer && !cribContainer.classList.contains('_crib-edit')) {
+//         editClearAll(); // Очищує будь-які інші активні редагування.
+//         [...cribContainer.querySelectorAll('[data-crib-content]')].forEach(content => {
+//             content.contentEditable = "true"; // Вмикає режим редагування.
+//         });
+//         cribContainer.classList.add('_crib-edit'); // Додає клас для позначення режиму редагування.
+//     } else {
+//         editClearAll(); // Очищує режим редагування, якщо він уже активний.
+//     }
+// }
 
-export function editClearAll() {
-    // Вимикає режим редагування для всіх контейнерів crib.
-    [...document.querySelectorAll('._crib-edit')].forEach(container => {
-        const cribEditableItems = container.querySelector('[data-crib-items]');
-        if (cribEditableItems.classList.contains('ui-sortable')) {
-            const btnOrder = container.querySelector('[data-crib-btn="order"]');
-            btnOrder.querySelector('[data-crib-check]').checked = false;
-            order(cribEditableItems, btnOrder); // Вимикає сортування, якщо воно активне.
-        }
-        container.classList.remove('_crib-edit'); // Видаляє клас редагування.
-        [...container.querySelectorAll('[data-crib-content]')].forEach(content => {
-            content.contentEditable = "false"; // Вимикає режим редагування для всіх елементів.
-        });
-    });
-}
+// export function editClearAll() {
+//     // Вимикає режим редагування для всіх контейнерів crib.
+//     [...document.querySelectorAll('._crib-edit')].forEach(container => {
+//         const cribEditableItems = container.querySelector('[data-crib-items]');
+//         if (cribEditableItems.classList.contains('ui-sortable')) {
+//             const btnOrder = container.querySelector('[data-btn="order"]');
+//             btnOrder.querySelector('[data-crib-check]').checked = false;
+//             order(cribEditableItems, btnOrder); // Вимикає сортування, якщо воно активне.
+//         }
+//         container.classList.remove('_crib-edit'); // Видаляє клас редагування.
+//         [...container.querySelectorAll('[data-crib-content]')].forEach(content => {
+//             content.contentEditable = "false"; // Вимикає режим редагування для всіх елементів.
+//         });
+//     });
+// }
 
 export function remove(cribContainer, cribItem) {
     // Видаляє вказаний елемент cribItem або контейнер cribContainer, якщо cribItem не вказано.

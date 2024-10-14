@@ -96,8 +96,6 @@
   
   // ** MENU Element ** 
   .menu-crib {
-
-
       &__wrapper {
         display: flex;
         flex-direction: column;
@@ -276,7 +274,7 @@
         content: ' ~';
       }
   
-      ._crib-edit &::before{
+      ._edit-chapter &::before{
         content: '';
         display: block;
         position: absolute;
@@ -288,7 +286,7 @@
         border-bottom: 1px solid #000;
       }
   
-      ._crib-edit &::after{
+      ._edit-chapter &::after{
         content: '';
         display: block;
         position: absolute;
@@ -300,7 +298,7 @@
         border-right: 1px solid #000;
       }
   
-      ._crib-edit & {
+      ._edit-chapter & {
         padding: rem(5) rem(10);
         display: inline-block;
         margin-top: rem(25);
@@ -317,7 +315,7 @@
       top: -40px;
       right: 0;
 
-      ._crib-edit & {
+      ._edit-chapter & {
         top: 0;
       }
     }
@@ -335,7 +333,7 @@
         justify-content: center;
       }
   
-      ._crib-edit & {
+      ._edit-chapter & {
         opacity: 1;
         visibility: visible;
       }
@@ -390,7 +388,7 @@
           color: #eba2a2;
         }
   
-        ._crib-edit & {
+        ._edit-chapter & {
           display: flex;
         }
       }
@@ -466,6 +464,71 @@
       }
     }
   }
+
+
+  :root {
+    --code-body-background: hsl(0, 0%, 0%);
+    --code-background: hsl(0, 0%, 18%);
+    --code-text-color: hsl(0, 0%, 71%);
+    --code-border-radius: 8px;
+  }
+
+  // Code element
+  .code {
+    color: var(--code-text-color);
+
+		&__header {
+      border-top-left-radius: var(--code-border-radius);
+      border-top-right-radius: var(--code-border-radius);
+      background-color: var(--code-background);
+      padding: rem(8);
+      display: flex;
+		}
+
+		&__title {
+      flex: 1 1 auto;
+		}
+
+		&__btns {
+      display: flex;
+      align-items: center;
+		}
+
+		&__btn {
+      display: flex;
+      align-items: center;
+
+			&_copy {
+			}
+
+			&_remove {
+        display: none;
+
+        ._edit-chapter & {
+          display: inline-block;
+        }
+			}
+		}
+
+		&__body {
+      background-color: var(--code-body-background);
+		}
+
+		&__redactor {
+		}
+
+    &__footer {
+      border-bottom-left-radius: var(--code-border-radius);
+      border-bottom-right-radius: var(--code-border-radius);;
+      background-color: var(--code-background);
+    }
+
+		&__description {
+      padding: rem(8);
+      text-align: center;
+		}
+}
+
   
   
   // Crib create content
@@ -482,7 +545,7 @@
       color: #32434A;
   
      
-      ._crib-edit &{
+      ._edit-chapter &{
         border: 1px solid #000; 
         padding: rem(10) rem(5);
         margin: 0 0 30px 0;
@@ -508,7 +571,7 @@
       &_text {
       }
   
-      ._crib-edit &_code {
+      ._edit-chapter &_code {
         padding: 0;
         border: 1px solid #fff;
       }
@@ -521,7 +584,7 @@
   
       }
   
-      ._crib-edit &_title {
+      ._edit-chapter &_title {
         margin: 0 0 rem(30) 0;
       }
   
@@ -544,7 +607,7 @@
       right: 15px;
       z-index: 50;
       
-      ._crib-edit & {
+      ._edit-chapter & {
         display: flex;
       }
     }
@@ -594,26 +657,23 @@
   
   // ** Code styles **
     .CodeMirror {
-      padding: rem(20) 0;
+      padding: rem(20) rem(10);
       height: auto;
-      border: 1px solid #ddd;
-      font-size: 16px;
+      font-size: 14px;
       font-family: 'Fira Code', monospace;
-      background-color: #272822;
-      color: #f8f8f2;
+      background-color: #000000;
+      color: #ffffff;
     }
-    .CodeMirror-cursor {
-      border-left: 2px solid #f8f8f2 !important;
+
+    .cm-s-dracula .CodeMirror-gutters, .cm-s-dracula.CodeMirror {
+      background-color: #000000 !important;
     }
-    .CodeMirror-selected {
-      background-color: rgba(255, 255, 255, 0.1) !important;
-    }
-    .CodeMirror-gutters {
-      background-color: #272822 !important;
-      border-right: 1px solid #444;
-    }
-    .CodeMirror-linenumber {
-      color: #75715e !important;
-    }
-  
-  
+    // .CodeMirror-cursor {
+    //   border-left: 2px solid #f8f8f2 !important;
+    // }
+    // .CodeMirror-selected {
+    //   background-color: rgba(255, 255, 255, 0.1) !important;
+    // }
+    // .CodeMirror-linenumber {
+    //   color: #75715e !important;
+    // }

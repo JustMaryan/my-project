@@ -463,6 +463,19 @@ $warning: #ff0000;
 		height: 30px;
 	}
 
+	&__btn-remove {
+		font-weight: 700;
+		border: 2px solid #ffe600;
+		color: #ffe600;
+		border-radius: 50%;
+		width: 30px;
+		height: 30px;
+
+		&::before {
+			transform: rotate(45deg);
+		}
+	}
+
 	// .shop__product
 
 	&__product {
