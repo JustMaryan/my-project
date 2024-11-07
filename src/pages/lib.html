@@ -22,23 +22,28 @@
     <div class="wrapper">
 		<div class="header">
 			<div class="header__container">
-				<h1 class="header__logo">MaryanKvasnitsha</h1>
+				<h2 class="header__logo">MaryanKvasnitsha</h2>
 				<a href="../index.html" class="header__btn">Home Page</a>
 			</div>
 		</div>
-		<main class="crib">
-			<div class="crib__container">
-				<!-- ** MENU ** -->
-				<div class="crib__menu menu-crib _icon-My-cheat-sheet">
-					<div data-crib-menu class="menu-crib__wrapper">
+		<main class="page">
+			<div class="page__container">
+				<!-- Menu -->
+				<div class="page__menu menu">
+					<div data-spollers class="menu__setting">
+						<h3 data-spoller class="menu__title _icon-apps-add">Керування</h3>
+						<div class="menu__btns">
+							<button data-btn="addChapter" class="menu__btn _icon-plus">Нова Глава</button>
+							<button class="menu__btn _icon-rotate-reverse">Розміщення</button>
+						</div>
 					</div>
-					<button data-btn="add-crib" class="menu-crib__btn _icon-plus">Нова Глава</button>
-					<span class="menu-crib__show _icon-angle-right"></span>
+					<div data-menu class="menu__wrapper">
+					</div>
+					<!-- burger menu button -->
+					<span class="menu__btn-burger _icon-angle-right"></span>
 				</div>				
-				<!-- ** BODY ** -->
-				<div data-crib-body class="crib__body">
-					<!-- code w2 -->
-				</div>
+				<!-- Body -->
+				<div data-body class="page__body"></div>
 			</div>
 		</main>
 	</div>

@@ -1,10 +1,9 @@
 import html from './html.js';
 
-function addCode(cribItems) {
-    // Створює новий елемент з HTML-шаблону і вставляє його у cribItems.
+function code(chapterItems) {
     const newItem = document.createRange().createContextualFragment(html.code);
     const contentContainer = newItem.querySelector('[data-crib-content]');
-    cribItems.appendChild(newItem);
+    chapterItems.appendChild(newItem);
 
     CodeMirror(contentContainer, {
         mode: "javascript",
@@ -14,4 +13,5 @@ function addCode(cribItems) {
     });
 
 }
-export default addCode;
+
+export default code;
